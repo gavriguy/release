@@ -41,6 +41,7 @@ gulp.task('changelog', ['git-bump'], function(done){
     if (err) {
       return done(err);
     }
+    console.log(log);
     fs.writeFile('CHANGELOG.md', log, done);
   }
   fs.readFile('./package.json', 'utf8', function(err, data){
