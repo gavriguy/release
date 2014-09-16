@@ -50,7 +50,13 @@ gulp.task('changelog', ['git-bump'], function(done){
     conventionalChangelog({
       repository: repository.url,
       version: version
-    }, changeParsed);
+    }, function(err, log){
+      if (err) {
+        return done(err);
+      }
+      console.log(log);
+      fs.writeFile('CHANGELOG.md', log, done);
+    });
   });
 });
 
