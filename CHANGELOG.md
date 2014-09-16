@@ -1,3 +1,11 @@
+### 2.1.9 (2014-09-16)
+
+
+#### Bug Fixes
+
+* **yo:** you are here ([7ca1cf73](https://github.com/gavriguy/release.git/commit/7ca1cf73653bbf90f43513266328f6939efd5858))
+
+
 ### 2.1.8 (2014-09-16)
 
 
