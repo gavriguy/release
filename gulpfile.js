@@ -63,12 +63,12 @@ gulp.task('changelog', ['git-bump'], function(done){
 });
 
 gulp.task('release', ['changelog'], function(){
-  version = pkg.Package.version
-  console.log('version', version);
+  file = pkg.read('./package.json');
+  console.log('version', file.version);
   return gulp.src('./')
   .pipe(git.add())
   .pipe(git.commit('chore: bump', {args: '--amend'}))
-  .pipe(git.tag(version,'', function (err) {
+  .pipe(git.tag(file.version,'', function (err) {
     if (err) throw err;
   }));
 })
