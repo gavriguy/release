@@ -5,6 +5,8 @@ var git = require('gulp-git');
 var fs = require('fs');
 var conventionalChangelog = require('conventional-changelog');
 var inquirer = require('inquirer');
+var pkg = require('pkg');
+
 
 gulp.task('bump', function() {
   var deferred = Q.defer();
@@ -61,7 +63,12 @@ gulp.task('changelog', ['git-bump'], function(done){
 });
 
 gulp.task('release', ['changelog'], function(){
+  version = pkg.Package.version
+  console.log('version', version);
   return gulp.src('./')
   .pipe(git.add())
-  .pipe(git.commit('chore: bump', {args: '--amend'}));
+  .pipe(git.commit('chore: bump', {args: '--amend'}))
+  .pipe(git.tag(version,'', function (err) {
+    if (err) throw err;
+  }));
 })
