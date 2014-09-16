@@ -68,7 +68,7 @@ gulp.task('release', ['changelog'], function(){
   return gulp.src('./')
   .pipe(git.add())
   .pipe(git.commit('chore: bump', {args: '--amend'}))
-  .pipe(git.tag(file.version(),'', function (err) {
+  .pipe(git.tag(file.version(),'tag', function (err) {
     if (err) throw err;
   }));
 })
