@@ -1,3 +1,11 @@
+### 2.1.10 (2014-09-16)
+
+
+#### Features
+
+* test ([fd5886d4](https://github.com/gavriguy/release.git/commit/fd5886d4989813910f7a2435b7c7202366b5bf5a))
+
+
 ### 2.1.9 (2014-09-16)
 
 
